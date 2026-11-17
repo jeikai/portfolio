@@ -1,39 +1,37 @@
-import { Award, Briefcase } from "lucide-react";
+import { Award, Briefcase, Sparkles } from "lucide-react";
+import SectionHeading from "./SectionHeading";
 
-const Achievements = ({ id, title, subtitle, items, icon = "award", tone = "red" }) => {
-    const Icon = icon === "work" ? Briefcase : Award;
-    const bg = tone === "white" ? "bg-gradient-to-br from-white to-red-50" : "bg-gradient-to-br from-red-50 to-white";
+const Achievements = ({ id, chip, title, subtitle, items, icon = "award" }) => {
+  const Icon = icon === "work" ? Briefcase : Award;
 
-    return (
-        <section id={id} className={`py-20 ${bg}`}>
-            <div className="container mx-auto px-6">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">{title}</h2>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">{subtitle}</p>
+  return (
+    <section id={id} className="px-4 py-14 md:px-6 md:py-16">
+      <div className="mx-auto max-w-6xl">
+        <SectionHeading chip={chip} title={title} subtitle={subtitle} />
+
+        <div className="grid gap-6 lg:grid-cols-2">
+          {items.map((item) => (
+            <article key={item.title + item.organization} className="card-shell offset-shadow p-7">
+              <div className="mb-5 flex items-start justify-between gap-4">
+                <div>
+                  <p className="mb-2 inline-flex items-center gap-2 rounded-full border-2 border-[#141414] bg-white px-3 py-1 text-xs font-extrabold uppercase tracking-[0.08em] text-[#141414]/70">
+                    <Sparkles size={14} className="text-[#a03039]" />
+                    {item.period}
+                  </p>
+                  <h3 className="text-2xl font-bold text-[#141414]">{item.title}</h3>
+                  <p className="mt-2 font-semibold text-[#141414]/70">{item.organization}</p>
                 </div>
-
-                <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                    {items.map((item) => (
-                        <div key={item.title + item.organization} className="group" data-aos="fade-up">
-                            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-l-4 border-[#a03039] h-full">
-                                <div className="flex items-start mb-4">
-                                    <div className="bg-[#a03039] p-3 rounded-full mr-4">
-                                        <Icon className="text-white" size={24} />
-                                    </div>
-                                    <div className="flex-1">
-                                        <span className="text-sm text-[#a03039] font-semibold">{item.period}</span>
-                                        <h3 className="text-xl font-bold text-gray-900 mt-1 mb-2">{item.title}</h3>
-                                        <p className="text-gray-600 font-medium">{item.organization}</p>
-                                    </div>
-                                </div>
-                                <p className="text-gray-600 leading-relaxed">{item.description}</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
+                <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border-2 border-[#141414] bg-[#a03039] text-white">
+                  <Icon size={22} />
+                </span>
+              </div>
+              <p className="leading-relaxed text-[#141414]/80">{item.description}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Achievements;

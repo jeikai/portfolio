@@ -3,6 +3,15 @@ import { Code, Server, Smartphone, GraduationCap } from "lucide-react";
 
 export const siteData = {
   name: "Phúc Trần",
+  tagline: "Full-stack Developer",
+  chip: "Full-stack Developer",
+  slogan: "Code sản phẩm thật, và biến việc học nghề IT thành trò chơi",
+  stats: [
+    { number: "2+", label: "Năm kinh nghiệm" },
+    { number: "6+", label: "Dự án tiêu biểu" },
+    { number: "2", label: "Giải thưởng" },
+    { number: "7.0", label: "IELTS" },
+  ],
   fullName: "Trần Quang Phúc",
   role: "Full-stack Developer",
   mission: "Founder Fun Bug · Co-founder Ola Class · Người làm FreeCareerPath",
@@ -15,6 +24,7 @@ export const nav = [
   { id: "skills", label: "Kỹ năng" },
   { id: "experience", label: "Kinh nghiệm" },
   { id: "projects", label: "Dự án" },
+  { id: "achievements", label: "Thành tựu" },
   { id: "contact", label: "Liên hệ" },
 ];
 
@@ -22,21 +32,29 @@ export const servicesData = [
   {
     icon: Code,
     title: "Frontend Web",
+    subtitle: "Giao diện web & ứng dụng doanh nghiệp",
+    features: ["ReactJS", "VueJS", "NextJS"],
     description: "ReactJS, NextJS, VueJS. Giao diện responsive, component tái sử dụng, tích hợp Salesforce và CRM.",
   },
   {
     icon: Server,
     title: "Backend & Cloud",
+    subtitle: "API, database và hạ tầng deploy",
+    features: ["NestJS", "Spring Boot", "Docker"],
     description: "NodeJS, NestJS, Spring Boot, Flask với PostgreSQL, MongoDB. Deploy bằng Docker, Nginx và AWS EC2.",
   },
   {
     icon: Smartphone,
     title: "Ứng dụng Mobile",
+    subtitle: "App đa nền tảng iOS & Android",
+    features: ["Flutter", "Firebase"],
     description: "Flutter đa nền tảng cho học sinh, phụ huynh và người dùng cuối, từ thiết kế tới phát hành.",
   },
   {
     icon: GraduationCap,
     title: "Giảng dạy & Mentor",
+    subtitle: "Dạy lập trình qua dự án thực tế",
+    features: ["Ola Class", "System Design"],
     description: "Co-founder Ola Class: dạy Full-stack, Software Engineering và System Design qua dự án thực tế.",
   },
 ];
@@ -100,6 +118,7 @@ export const achievementsData = [
 export const projectsData = [
   {
     name: "FreeCareerPath",
+    images: ["/img/fcp-multiverse.jpg", "/img/fcp-logo.png"],
     category: "Dự án cá nhân",
     status: "Đang phát triển",
     description:
@@ -109,6 +128,7 @@ export const projectsData = [
   },
   {
     name: "Happy Insight X",
+    images: ["/bg_1.jpg", "/bg_2.jpg"],
     category: "Nền tảng giáo dục",
     status: "Hoàn thành",
     description:
@@ -117,6 +137,7 @@ export const projectsData = [
   },
   {
     name: "Light's",
+    images: ["/bg_3.jpg", "/bg_4.jpg"],
     category: "Sức khoẻ tinh thần",
     status: "Hoàn thành",
     description:
@@ -125,6 +146,7 @@ export const projectsData = [
   },
   {
     name: "Internal KPI Tracking",
+    images: ["/bg_8.jpg", "/bg_9.jpg"],
     category: "FPT Software",
     status: "Hoàn thành",
     description: "Nền tảng nội bộ theo dõi hiệu suất nhân viên: giao diện responsive, API bảo mật cho báo cáo KPI và dashboard.",
@@ -132,6 +154,7 @@ export const projectsData = [
   },
   {
     name: "Adaptive Code System",
+    images: ["/bg_10.jpg", "/bg_7.jpg"],
     category: "FPT Software",
     status: "Hoàn thành",
     description: "Module frontend cấu hình được cho quy trình nghiệp vụ động, tích hợp Salesforce để tự động hoá workflow.",
@@ -139,6 +162,8 @@ export const projectsData = [
   },
   {
     name: "Fun Bug",
+    year: "Từ 2021",
+    images: ["/bg_6.jpg", "/bg_5.jpg"],
     category: "Studio outsource",
     status: "Đang hoạt động",
     description: "Studio nhỏ mình sáng lập, nhận làm website, nền tảng đặt lịch, thương mại điện tử và công cụ quản lý nội bộ.",

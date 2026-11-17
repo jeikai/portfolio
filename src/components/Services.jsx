@@ -1,35 +1,51 @@
+import { ArrowUpRight } from "lucide-react";
 import { servicesData } from "../data/siteData";
+import SectionHeading from "./SectionHeading";
 
 const Services = () => {
-    return (
-        <section id="skills" className="py-20 bg-white">
-            <div className="container mx-auto px-6">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Mình làm được gì</h2>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                        Từ giao diện web, backend, cloud tới app mobile, và cả việc dạy lại cho người mới
-                    </p>
-                </div>
+  return (
+    <section id="skills" className="px-4 py-14 md:px-6 md:py-16">
+      <div className="mx-auto max-w-6xl">
+        <SectionHeading
+          chip="What I do"
+          title="Mình làm được gì"
+          subtitle="Từ giao diện web, backend, cloud tới app mobile, và cả việc dạy lại cho người mới bắt đầu."
+        />
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {servicesData.map((service, index) => {
-                        const Icon = service.icon;
-                        return (
-                            <div key={service.title} className="group h-full" data-aos="fade-up" data-aos-delay={index * 100}>
-                                <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-transparent hover:border-[#a03039]/20 flex flex-col h-full">
-                                    <div className="bg-red-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#a03039] transition-all duration-300">
-                                        <Icon className="text-[#a03039] group-hover:text-white transition-colors duration-300" size={32} />
-                                    </div>
-                                    <h3 className="text-xl font-bold text-gray-900 mb-4">{service.title}</h3>
-                                    <p className="text-gray-600 leading-relaxed">{service.description}</p>
-                                </div>
-                            </div>
-                        );
-                    })}
+        <div className="grid gap-6 md:grid-cols-2">
+          {servicesData.map(({ icon: Icon, title, subtitle, description, features }) => (
+            <article
+              key={title}
+             
+              className="card-shell offset-shadow group flex h-full flex-col justify-between p-7 transition duration-300 hover:-translate-y-1"
+            >
+              <div>
+                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl border-2 border-[#141414] bg-[#f8e6e8]">
+                  <Icon className="text-[#a03039]" size={30} />
                 </div>
-            </div>
-        </section>
-    );
+                <h3 className="mb-2 text-2xl font-bold text-[#141414]">{title}</h3>
+                <p className="mb-5 font-semibold text-[#141414]/65">{subtitle}</p>
+                <p className="text-[#141414]/75">{description}</p>
+              </div>
+
+              <div className="mt-8 flex items-center justify-between gap-4">
+                <div className="flex flex-wrap gap-2">
+                  {features.map((feature) => (
+                    <span key={feature} className="rounded-full border-2 border-[#141414] bg-white px-3 py-1 text-xs font-bold">
+                      {feature}
+                    </span>
+                  ))}
+                </div>
+                <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-[#141414] bg-[#a03039] text-white">
+                  <ArrowUpRight size={18} />
+                </span>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Services;

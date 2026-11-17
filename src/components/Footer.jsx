@@ -1,60 +1,60 @@
-import { Mail, Github, MapPin } from "lucide-react";
+import { Github, Mail, MapPin } from "lucide-react";
 import { siteData, contactData, servicesData, nav } from "../data/siteData";
 
 const Footer = () => {
-    return (
-        <footer className="bg-gray-900 text-white py-12">
-            <div className="container mx-auto px-6">
-                <div className="grid md:grid-cols-4 gap-8">
-                    <div className="md:col-span-2">
-                        <h3 className="text-2xl font-bold text-[#a03039] mb-4">{siteData.fullName}</h3>
-                        <p className="text-gray-400 mb-6 max-w-md">{siteData.mission}</p>
-                        <div className="space-y-2">
-                            <div className="flex items-center">
-                                <Mail size={16} className="mr-3 text-[#a03039]" />
-                                <a href={`mailto:${contactData.email}`} className="hover:text-[#a03039]">{contactData.email}</a>
-                            </div>
-                            <div className="flex items-center">
-                                <Github size={16} className="mr-3 text-[#a03039]" />
-                                <a href={contactData.githubUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[#a03039]">{contactData.github}</a>
-                            </div>
-                            <div className="flex items-center">
-                                <MapPin size={16} className="mr-3 text-[#a03039]" />
-                                <span>{contactData.address}</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h4 className="font-bold mb-4">Kỹ năng</h4>
-                        <ul className="space-y-2 text-gray-400">
-                            {servicesData.map((s) => (
-                                <li key={s.title}>{s.title}</li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h4 className="font-bold mb-4">Liên kết</h4>
-                        <ul className="space-y-2 text-gray-400">
-                            {nav.map((item) => (
-                                <li key={item.id}>
-                                    <a href={`#${item.id}`} className="hover:text-[#a03039] transition-colors">{item.label}</a>
-                                </li>
-                            ))}
-                            <li>
-                                <a href="https://freecareerpath.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#a03039] transition-colors">FreeCareerPath</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-                    <p>&copy; {new Date().getFullYear()} {siteData.fullName}. Tất cả quyền được bảo lưu.</p>
-                </div>
+  return (
+    <footer className="px-4 pb-8 pt-14 md:px-6 md:pb-10">
+      <div className="mx-auto max-w-6xl card-shell offset-shadow overflow-hidden bg-[#fffdf9] text-[#141414]">
+        <div className="grid gap-8 border-b-2 border-[#141414]/20 p-7 md:grid-cols-[1.2fr_0.8fr_0.8fr] md:p-10">
+          <div>
+            <h3 className="text-3xl font-bold text-[#a03039]">{siteData.fullName}</h3>
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-[#141414]/75">{siteData.mission}</p>
+            <div className="mt-6 grid gap-3 text-sm text-[#141414]/85">
+              <a href={`mailto:${contactData.email}`} className="flex items-center gap-2 hover:text-[#a03039]">
+                <Mail size={15} className="text-[#a03039]" />
+                {contactData.email}
+              </a>
+              <a href={contactData.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-[#a03039]">
+                <Github size={15} className="text-[#a03039]" />
+                {contactData.github}
+              </a>
+              <p className="flex items-center gap-2">
+                <MapPin size={15} className="text-[#a03039]" />
+                {contactData.address}
+              </p>
             </div>
-        </footer>
-    );
+          </div>
+
+          <div>
+            <h4 className="text-sm font-extrabold uppercase tracking-[0.1em] text-[#141414]/60">Kỹ năng</h4>
+            <ul className="mt-4 space-y-2 text-sm text-[#141414]/80">
+              {servicesData.map((s) => (
+                <li key={s.title}>{s.title}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-sm font-extrabold uppercase tracking-[0.1em] text-[#141414]/60">Liên kết</h4>
+            <ul className="mt-4 space-y-2 text-sm text-[#141414]/80">
+              {nav.map((item) => (
+                <li key={item.id}>
+                  <a href={`#${item.id}`} className="transition hover:text-[#a03039]">{item.label}</a>
+                </li>
+              ))}
+              <li>
+                <a href="https://freecareerpath.com" target="_blank" rel="noopener noreferrer" className="transition hover:text-[#a03039]">FreeCareerPath</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="p-5 text-center text-xs font-semibold tracking-[0.07em] text-[#141414]/60 md:p-6">
+          &copy; {new Date().getFullYear()} {siteData.fullName}. Tất cả quyền được bảo lưu.
+        </div>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;
