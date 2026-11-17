@@ -20,9 +20,9 @@ const Hero = () => {
           <span className="section-title-chip">{siteData.chip}</span>
 
           <h1 className="max-w-xl text-4xl font-extrabold leading-tight text-[#141414] sm:text-5xl lg:text-6xl">
-            Xin chào, mình là{" "}
+            Mình là{" "}
             <span className="inline rounded-2xl border-2 border-[#141414] bg-[#a03039] px-3 text-white">
-              {siteData.fullName}
+              {siteData.name}
             </span>
           </h1>
 
