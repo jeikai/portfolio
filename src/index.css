@@ -1,34 +1,4 @@
 @import "tailwindcss";
 
-@theme {
-  --color-ink: #0a0b14;
-  --color-panel: #12142a;
-  --color-line: #262a4a;
-  --color-gold: #f2b134;
-  --color-pink: #ff4fa3;
-  --color-cyan: #4fd8ff;
-  --color-mute: #9aa0c3;
-  --font-sans: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
-}
-
 html { scroll-behavior: smooth; }
-body {
-  background: var(--color-ink);
-  color: #e8eaf6;
-  -webkit-font-smoothing: antialiased;
-  background-image:
-    radial-gradient(1px 1px at 20% 30%, #ffffff55 50%, transparent 51%),
-    radial-gradient(1px 1px at 70% 80%, #ffffff44 50%, transparent 51%),
-    radial-gradient(1px 1px at 40% 60%, #ffffff33 50%, transparent 51%),
-    radial-gradient(1px 1px at 85% 15%, #ffffff55 50%, transparent 51%);
-  background-size: 220px 220px, 300px 300px, 170px 170px, 260px 260px;
-}
-.pixel { image-rendering: pixelated; }
-section[id] { scroll-margin-top: 72px; }
-
-@keyframes bob { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-6px) } }
-.bob { animation: bob 2.4s ease-in-out infinite; }
-@keyframes glow { 0%,100% { box-shadow: 0 0 0 0 #f2b13455 } 50% { box-shadow: 0 0 0 8px #f2b13400 } }
-.glow { animation: glow 2s ease-in-out infinite; }
-@media (prefers-reduced-motion: reduce) { .bob, .glow { animation: none; } html { scroll-behavior: auto; } }
+section[id] { scroll-margin-top: 80px; }
